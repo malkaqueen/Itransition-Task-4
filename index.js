@@ -41,15 +41,4 @@ const csvStringifier = createCsvStringifier({
 
 const csvString = csvStringifier.stringifyRecords(createFakeEntries(myArgs[0], loadLocale(myArgs[1])));
 
-const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
-
-rl.question('CSV object was successfully created, do you want to save it to your computer? y/n ', (answer) => {
-    if (answer == 'y') fs.writeFile('faker.csv', csvString, function (err) {
-        if (err) throw err;
-        console.log('CSV file was successfully saved!');
-    });
-    rl.close();
-});
+console.log(csvString);
